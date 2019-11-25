@@ -48,6 +48,6 @@ public class MySecurityMetadataSource implements FilterInvocationSecurityMetadat
 
     @Override
     public boolean supports(Class<?> clazz) {
-        return FilterInvocation.class.isAssignableFrom(clazz);
+            return FilterInvocation.class.isAssignableFrom(clazz);
     }
 }

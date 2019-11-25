@@ -2,6 +2,9 @@ package com.apkkids.config;
 
 import com.apkkids.service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor;
 import org.springframework.security.config.annotation.ObjectPostProcessor;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,6 +21,7 @@ import org.springframework.security.web.access.intercept.FilterSecurityIntercept
  * Create Time: 17:36
  * Description: Security 配置类
  */
+@Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
@@ -30,6 +34,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     MySecurityMetadataSource mySecurityMetadataSource;
     @Autowired
     MyAccessDeniedHandler myAccessDeniedHandler;
+
+    @Autowired
+    private MenuMethodSecurityMetadataSource menuMethodSecurityMetadataSource;
+
+    @Bean
+    public MethodSecurityInterceptor methodSecurityInterceptor() throws Exception {
+        MethodSecurityInterceptor methodSecurityInterceptor = new MethodSecurityInterceptor();
+        methodSecurityInterceptor.setAccessDecisionManager(myAccessDecisionManager);
+        methodSecurityInterceptor.setAuthenticationManager(authenticationManager());
+        methodSecurityInterceptor.setSecurityMetadataSource(menuMethodSecurityMetadataSource);
+        return methodSecurityInterceptor;
+    }
+
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {

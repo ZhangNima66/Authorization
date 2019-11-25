@@ -18,7 +18,7 @@ import java.util.Iterator;
  * 本类是鉴权的决策类
  */
 @Component
-public class MyAccessDecisionManager implements AccessDecisionManager {
+    public class MyAccessDecisionManager implements AccessDecisionManager {
     @Override
     public void decide(Authentication authentication, Object object, Collection<ConfigAttribute> configAttributes)
             throws AccessDeniedException, InsufficientAuthenticationException {

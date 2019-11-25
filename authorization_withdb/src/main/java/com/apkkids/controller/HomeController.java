@@ -25,7 +25,6 @@ public class HomeController {
         }
         return "index";
     }
-
     @RequestMapping("/login")
     public String login(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
