@@ -22,6 +22,8 @@ public class HomeController {
             Collection<GrantedAuthority> authorityCollection = (Collection<GrantedAuthority>) auth.getAuthorities();
             model.addAttribute("authorities", authorityCollection.toString());
             model.addAttribute("username", SecurityContextHolder.getContext().getAuthentication().getName());
+            model.addAttribute("appDD", SecurityContextHolder.getContext().getAuthentication().getName());
+            model.addAttribute("app", SecurityContextHolder.getContext().getAuthentication().getName());
         }
         return "index";
     }
