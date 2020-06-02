@@ -25,9 +25,16 @@ public class HomeController {
             model.addAttribute("app", SecurityContextHolder.getContext().getAuthentication().getName());
             model.addAttribute("app", SecurityContextHolder.getContext().getAuthentication().getName());
             model.addAttribute("app", SecurityContextHolder.getContext().getAuthentication().getName());
+            String i = "11";
+
+            i = "1";
+            i = "2";
+            i = "3";
+
         }
         return "index";
     }
+
     @RequestMapping("/login")
     public String login(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
