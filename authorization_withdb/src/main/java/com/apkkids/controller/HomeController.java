@@ -23,6 +23,8 @@ public class HomeController {
             model.addAttribute("authorities", authorityCollection.toString());
             model.addAttribute("username", SecurityContextHolder.getContext().getAuthentication().getName());
             model.addAttribute("app", SecurityContextHolder.getContext().getAuthentication().getName());
+            model.addAttribute("app", SecurityContextHolder.getContext().getAuthentication().getName());
+            model.addAttribute("app", SecurityContextHolder.getContext().getAuthentication().getName());
         }
         return "index";
     }
