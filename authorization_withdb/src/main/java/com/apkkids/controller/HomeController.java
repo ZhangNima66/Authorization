@@ -32,6 +32,7 @@ public class HomeController {
             i = "3";
             i = "4";
             i = "5";
+            i = "6";
 
         }
         return "index";
